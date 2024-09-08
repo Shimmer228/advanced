@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Planner</title>
+    <link rel="stylesheet" href=".//CSS/style.css">
+</head>
+<body>
+    <header>
+        <a href="https://youtu.be/eaEMSKzqGAg?si=z6INyDUo5eaplGQz"> <div class="logo">Logo</div></a>
+        <button id="authButton" class="btn">Вхід</button>
+    </header>
+
+
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Авторизація</h2>
+            <form id="authForm">
+                <input type="email" placeholder="Email" value = "rodson5973@gmail.com" required>
+                <input type="password" placeholder="Пароль" value = "123454321" required>
+                <button type="submit" class="btn">Увійти</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="createVisitModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Створити візит</h2>
+            <form id="createVisitForm">
+                <select id="doctorSelect" required>
+                    <option value="">Оберіть лікаря</option>
+                    <option value="cardiologist">Кардіолог</option>
+                    <option value="dentist">Стоматолог</option>
+                    <option value="therapist">Терапевт</option>
+                </select>
+    
+                <input type="text" name="purpose" placeholder="Мета візиту" required>
+                <textarea name="description" placeholder="Опис візиту" required></textarea>
+
+                <select name="urgency" required>
+                    <option value="">Терміновість</option>
+                    <option value="Невідкладна">Невідкладна</option>
+                    <option value="Пріоритетна">Пріоритетна</option>
+                    <option value="Звичайна">Звичайна</option>
+                </select>
+
+                <input type="text" name="fullName" placeholder="ПІБ" required>
+                
+                <select name="visit-status" id="visit-status">
+                    <option value="">Обраний статус</option>
+                    <option value="Open">Open</option>
+                    <option value="Done">Done</option>
+                </select>
+                <!-- Динамічні поля для вибору лікаря -->
+                <div id="additionalFields"></div>
+    
+                <button type="submit" class="btn">Створити</button>
+                <button type="button" class="btn close-modal">Закрити</button>
+            </form>
+        </div>
+    </div>
+    <div id="editVisitModal" class="modal">
+        <div class="modal-content">
+            <span class="close close-modal">&times;</span>
+            <h2>Редагувати візит</h2>
+            <form id="editVisitForm">
+                <select id="doctorSelectEdit" required>
+                    <option value="cardiologist">Кардіолог</option>
+                    <option value="dentist">Стоматолог</option>
+                    <option value="therapist">Терапевт</option>
+                </select>
+                <input type="text" name="purpose" placeholder="Мета візиту" required>
+                <textarea name="description" placeholder="Опис візиту" required></textarea>
+                <select name="urgency" required>
+                    <option value="Невідкладна">Невідкладна</option>
+                    <option value="Пріоритетна">Пріоритетна</option>
+                    <option value="Звичайна">Звичайна</option>
+                </select>
+                <input type="text" name="fullName" placeholder="ПІБ" required>
+                <select name="visit" id="visit-status">
+                    <option value="Open">Open</option>
+                    <option value="Done">Done</option>
+                </select>
+                <div id="additionalFieldss"></div>
+                <button type="submit" class="btn">Оновити</button>
+                <button type="button" class="btn close-modal">Закрити</button>
+            </form>
+        </div>
+    </div>
+    
+    
+    
+    
+
+
+
+
+    <main class="container" id="filter-form" style="display: none;">
+        <form id="form">
+            <label for="search-title">Пошук за заголовком/ вмістом візиту</label>
+            <input type="text" id="search-title"  placeholder="Enter title or content">
+            <br>
+
+            <label for="status">Пошук за статусом (Open/Done) </label>
+            <select name="status" id="status">
+                <option value="">Обраний статус</option>
+                <option value="Open">Open</option>
+                <option value="Done">Done</option>
+            </select>
+            <br>
+
+            <label for="priority"> Пошук за терміновістю </label>
+                <select name="priority" id="priority">
+                    <option value="">Обрати терміновість</option>
+                    <option value="Невідкладна">Невідкладна</option>
+                    <option value="Пріоритетна">Пріоритетна</option>
+                    <option value="Звичайна">Звичайна</option>
+                </select>
+                <br>
+
+
+            <button type="submit" id="btn">Фільтрувати візити</button>
+        </form>
+    </main>
+
+    <section>
+    </section>
+
+    <section class="container">
+        <div id="visit-list">
+            <p id="visit-block">
+                No items have been added.
+            </p>
+            <div class="details" style="display: none;">
+                <span class="close"> Close</span>
+            </div>
+        </div>
+
+
+
+    </section>
+
+    <script src="./JS/script.js"></script>
+</body>
+</html>
